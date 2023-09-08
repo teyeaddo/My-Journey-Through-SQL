@@ -1,3 +1,4 @@
+/*This query lists the count of movies with each family-friendly category together with the rental duration quartile category */
 SELECT name, standard_quartile, COUNT(standard_quartile)
 FROM
 (SELECT f.title, c.name, f.rental_duration, NTILE(4) OVER (ORDER BY f.rental_duration) AS standard_quartile
